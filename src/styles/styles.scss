@@ -1,0 +1,17 @@
+//imports
+@use "reset";
+@use "login";
+@use "create-user";
+@use "../components/UI/Header/header";
+@use "../components/UI/SideNav/sidenav";
+@use "../components//UI/Featured/featuredmedia";
+@use "../components/UI/ForYouList/foryoulist";
+@use "../components/UI/JustAdded/justadded";
+@use "../components/UI/PosterView/posterview";
+@use "../components/UI/CastInfo/castinfo";
+@use "../components/UI/Account/account.scss";
+@use "../components/UI/SearchModal/searchmodal";
+
+:root {
+	font-size: 16px;
+}
