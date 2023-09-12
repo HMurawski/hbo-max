@@ -1,3 +1,4 @@
+import {Link} from 'react-dom'
 const Account = (props) => {
     return (
     
@@ -23,16 +24,16 @@ const Account = (props) => {
         <div className="account__menu">
             <ul className="account__main">
                 <li>
-                    <a href="/" className="active">My List</a>
+                    <Link href="/" className="active">My List</Link>
                 </li>
             </ul>
             <div className="side-nav__divider"/>
             <ul className="account__main">
                 <li>
-                    <a href="/" className="">Account</a>
+                    <Link href="/" className="">Account</Link>
                 </li>
                 <li>
-                    <a href="/" className="">Sing Out</a>
+                    <Link href="/" className="">Sing Out</Link>
                 </li>
             </ul>
         </div>
