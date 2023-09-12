@@ -1,4 +1,5 @@
-import {Link} from 'react-dom'
+import Link from 'next/link';
+
 const SideNav = (props) => {
 	return (
 		<>
