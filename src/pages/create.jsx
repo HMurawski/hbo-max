@@ -1,9 +1,9 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import { useStateContext } from "@/components/HBOProvider";
 
 export default function CreateUser() {
+  const globalState = useStateContext();
+  console.log(globalState);
 	return (
 		<>
 			<Head>
@@ -21,10 +21,10 @@ export default function CreateUser() {
         </div>
         <div className="create-user__form">
           
-            <img className="create-user__user-img" src="https://randomuser.me/api/portraits/men/81.jpg" />
+            <img className="create-user__user-img" src={globalState.defaultUserImg} />
             <div className="create-user__input-group">
                 <label>Name: </label>
-                <input type='text' className="create-user__inputText" />
+                <input  value={globalState.user} onChange={globalState.createUserAction} type='text' className="create-user__inputText" />
                 <div className="create-user__colors">
                     <div className="create-user__color create-user__color--active" style={{
                         background: '#6617cb',
