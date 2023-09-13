@@ -9,10 +9,7 @@ export default function Index() {
 	const router = useRouter();
 
 	useEffect(() => {
-		const loggedIn = false;
-		if (loggedIn === false) {
-			router.push("/create");
-		}
+		
 	}, []);
 	return (
 		<>
@@ -22,7 +19,7 @@ export default function Index() {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 			</Head>
 			<>
-				<Login />
+			<div>Show home page</div>
 			</>
 		</>
 	);
