@@ -6,9 +6,10 @@ import ForYouList from "@/components/UI/ForYouList/ForYouList";
 import JustAdded from "@/components/UI/JustAdded/JustAdded";
 import PosterView from "@/components/UI/PosterView/PosterView";
 import CastInfo from "@/components/UI/CastInfo/CastInfo";
+import AuthCheck from "@/components/AuthCheck";
 
 export default function Movie() {
-	return (
+	return AuthCheck(
 		<>
 			<Head>
 				<title>HBO Max Clone</title>
