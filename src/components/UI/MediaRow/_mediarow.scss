@@ -16,20 +16,29 @@
         display: none;
     }
   }
+  
+  &.large-v {
+    &__thumbnail {
+      width: 400px;
+      height: 600px;
+    }
+    img {
+      width: 400px;
+      height: 600px;
+    }
+  }
   &__thumbnail {
-    width: 400px;
-    height: 600px;
+    
     position: relative;
     margin-right: 10px;
-    
   }
   img {
-    width: 400px;
-    height: 600px;
     object-fit: cover;
     object-position: center;
     flex-shrink: 0;
   }
+
+
   &__top-layer {
     background: rgb(94, 255, 245);
     background: linear-gradient(
@@ -64,6 +73,100 @@
         transform: translate3d(0,100px,0);
         opacity: 0;
         transition: all .3s ease-in-out .2s;
+    }
+   
+  }
+  &__thumbnail-skeleton{
+    width: 400px;
+    height: 600px;
+    margin-right: 10px;
+  }
+  &__thumbnail-skeleton-img{
+    width: 400px;
+    height: 600px;
+  }
+  &__thumbnail-skeleton-img{
+    background: rgb(19,19,19);
+    margin: 10px 0px;
+    position: relative;
+    overflow: hidden;
+}
+&__thumbnail-skeleton-img::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255,255,255, 0.082);
+    height: 100%;
+    transform: skew(5deg);
+    animation: shine infinite 1.5s ease-in-out;
+    filter: blur(100px);
+}
+
+@keyframes shine {
+    from{
+        transform: skew(45deg) translateX(-200%);
+    }
+    to{
+        transform: skew(45deg) translateX(300%);
+    }
+}
+  &.small-v {
+    &__thumbnail {
+      width: 240px;
+      height: 360px;
+    }
+    img {
+      width: 240px;
+      height: 360px;
+    }
+    &__thumbnail-skeleton{
+      width: 240px;
+      height: 360px;
+      margin-right: 10px;
+    }
+    &__thumbnail-skeleton-img{
+      width: 240px;
+      height: 360px;
+    }
+  }
+  &.small-h {
+    &__thumbnail {
+      width: 450px;
+      height: 253px;
+    }
+    img {
+      width: 450px;
+      height: 253px;
+    }
+    &__thumbnail-skeleton{
+      width: 450px;
+      height: 253px;
+      margin-right: 10px;
+    }
+    &__thumbnail-skeleton-img{
+      width: 450px;
+      height: 253px;
+    }
+  }
+  &.large-h {
+    &__thumbnail {
+      width: 700px;
+      height: 394px;
+    }
+    img {
+      width: 700px;
+      height: 394px;
+    }
+    &__thumbnail-skeleton{
+      width: 700px;
+      height: 394px;
+      margin-right: 10px;
+    }
+    &__thumbnail-skeleton-img{
+      width: 700px;
+      height: 394px;
     }
   }
 
