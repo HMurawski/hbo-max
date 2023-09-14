@@ -33,7 +33,7 @@ export default function SingleMediaPage(props) {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 			</Head>
 			<MainLayout>
-				<h1>${props.query.id}</h1>
+				
 				<FeaturedMedia
 					title={mediaData.title}
 					linkUrl="/movies/id"
