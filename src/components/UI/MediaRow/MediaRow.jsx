@@ -25,7 +25,7 @@ const MediaRow = (props) => {
 			
 	}, []);
 
-	useEffect(() => {}, []);
+	
 
 	const loopComp = (comp, digit) => {
 		let thumbnails = [];
@@ -42,13 +42,17 @@ const MediaRow = (props) => {
                 return <Thumbnail movieData={movie} />
             })
 	};
+
+    
+
+
 	return (
 		<>
 			<div className={`media-row ${props.type}`}>
 				<h3 className="media-row__title">{props.title}</h3>
 				<div className="media-row__thumbnails">
 					{showThumbnails()}
-					{/* {loopComp(<Thumbnail />, 10)} */}
+					
 				</div>
 			</div>
 		</>
