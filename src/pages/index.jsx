@@ -25,7 +25,7 @@ export default function Index() {
 			<MainLayout>
 				<FeaturedMedia />
 				<LazyLoad
-					offset={-400}
+					
 					>
 					<MediaRow
 						title="Movies"
@@ -35,7 +35,7 @@ export default function Index() {
 					/>
 				</LazyLoad>
 
-				<LazyLoad  offset={-400}
+				<LazyLoad  
 					  >
 					<MediaRow
 						title="Series"
@@ -45,7 +45,7 @@ export default function Index() {
 					/>
 				</LazyLoad>
 
-				<LazyLoad  offset={-200}>
+				<LazyLoad  >
 					<MediaRow
 						title="Fantasy"
 						type="small-v"
@@ -54,7 +54,7 @@ export default function Index() {
 					/>
 				</LazyLoad>
 
-				<LazyLoad offset={-200}>
+				<LazyLoad >
 					<MediaRow
 						title="Drama"
 						type="small-v"
@@ -63,7 +63,7 @@ export default function Index() {
 					/>
 				</LazyLoad>
 
-				<LazyLoad offset={-200}>
+				<LazyLoad >
 					<MediaRow
 						title="Sci-Fi"
 						type="small-v"
@@ -72,7 +72,7 @@ export default function Index() {
 					/>
 				</LazyLoad>
 
-				<LazyLoad offset={-200}>
+				<LazyLoad >
 					<MediaRow
 						title="Thriller"
 						type="small-v"
@@ -81,7 +81,7 @@ export default function Index() {
 					/>
 				</LazyLoad>
 
-				<LazyLoad offset={-200}>
+				<LazyLoad >
 					<MediaRow
 						title="Documentary"
 						type="small-v"
