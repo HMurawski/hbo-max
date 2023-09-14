@@ -1,29 +1,44 @@
-const FeaturedMedia = () => {
+const FeaturedMedia = (props) => {
+
+	const clickedPlay = () =>{
+		console.log(`page of the media` + props.mediaUrl);
+	}
+
+
+	const showMedia = () => {
+		if(props.type === 'front'){
+			return (<iframe
+				className="featured-media__video"
+				width="100%"
+				height="100%"
+				src={props.mediaUrl}
+				title="YouTube video player"
+				frameborder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+				allowFullScreen
+			/>)
+		}else {
+			return (
+				<img src={props.mediaUrl}  className="featured-media__img"/>
+			)
+		}
+	}
 	return (
 		<>
 			<div className="featured-media">
-				<iframe
-					className="featured-media__video"
-					width="100%"
-					height="100%"
-					src="https://www.youtube.com/embed/KPLWWIOCOOQ?autoplay=1&loop=1&start=2"
-					title="YouTube video player"
-					frameborder="0"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-					allowfullscreen
-				/>
+				{showMedia()}
 				<div className="featured-media__bg">
 					<div className="featured-media__container">
-						<div className="featured-media__title">Game of Thrones</div>
+						<div className="featured-media__title" onClick={clickedPlay}>{props.title}</div>
 						<div className="featured-media__playing">NOW PLAYING</div>
 						<div className="featured-media__location">
 							Streaming on HBO MAX only!
 						</div>
 						<div className="featured-media__buttons">
-							<div className="featured-media__play-btn">
+							<div className="featured-media__play-btn" onClick={clickedPlay}>
 								<i className="fas fa-play" />
 							</div>
-							<div className="featured-media__info-btn">MORE INFO</div>
+							<div className="featured-media__info-btn" onClick={clickedPlay}>MORE INFO</div>
 						</div>
 					</div>
 				</div>

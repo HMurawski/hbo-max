@@ -23,7 +23,7 @@ export default function Index() {
 			</Head>
 
 			<MainLayout>
-				<FeaturedMedia />
+				<FeaturedMedia mediaUrl="https://www.youtube.com/embed/KPLWWIOCOOQ?autoplay=1&loop=1&start=2"  title="Game of Thrones" linkUrl='/movies/id'  type="front" />
 				<LazyLoad
 					
 					>

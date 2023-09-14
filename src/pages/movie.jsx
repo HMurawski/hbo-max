@@ -16,8 +16,13 @@ export default function Movie() {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 			</Head>
 			<MainLayout>
-				<FeaturedMedia />
-				<MediaRow title='More Like This' type='small-v'/>
+				<FeaturedMedia videoUrl="https://www.youtube.com/embed/KPLWWIOCOOQ?autoplay=1&loop=1&start=2"  title="Game of Thrones" mediaUrl='/movies/id'  />
+				<MediaRow
+						title="Movies"
+						type="small-v"
+						genreID="28"
+						endpoint="discover/movie?with_genres=28&primary_release_year=2023"
+					/>
 				
                 <CastInfo />
 			</MainLayout>
