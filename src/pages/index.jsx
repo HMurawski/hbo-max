@@ -8,6 +8,7 @@ import ForYouList from "@/components/UI/ForYouList/ForYouList";
 import JustAdded from "@/components/UI/JustAdded/JustAdded";
 import PosterView from "@/components/UI/PosterView/PosterView";
 import AuthCheck from "@/components/AuthCheck";
+import MediaRow from "@/components/UI/MediaRow/MediaRow";
 
 export default function Index() {
 	const globalState = useStateContext();
@@ -21,13 +22,10 @@ export default function Index() {
 				<meta name="description" content="HBOMAX Clone created by HM9" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 			</Head>
-			<Head>
-				<title>HBO Max Clone</title>
-				<meta name="description" content="HBOMAX Clone created by HM9" />
-				<meta name="viewport" content="width=device-width, initial-scale=1" />
-			</Head>
+			
 			<MainLayout>
 				<FeaturedMedia />
+				<MediaRow />
 				<ForYouList />
 				<JustAdded />
 				<PosterView />

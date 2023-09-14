@@ -1,9 +1,11 @@
 import Link from 'next/link';
+import { useStateContext } from '@/components/HBOProvider';
 
 const Account = (props) => {
+    const globalState = useStateContext();
     return (
     
-        <div className="account">
+        <div className={`account ${globalState.accountModalOpened ? 'account--active' : ''}`}>
             <div className="account__details">
         <div className="account__title">My List</div>
         <div className="account__watch-list">

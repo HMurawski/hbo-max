@@ -6,17 +6,40 @@ export function useStateContext() {
 }
 
 export function HBOProvider({ children }) {
-	const [user, setUser] = useState('');
-    const defaultUserImg = 'https://randomuser.me/api/portraits/men/81.jpg'
+	const [user, setUser] = useState("");
+	const defaultUserImg = "https://randomuser.me/api/portraits/men/81.jpg";
 
 	const createUserAction = (e) => {
 		setUser(e.target.value);
-        console.log(user);
+		console.log(user);
 	};
-	const [sideNavOpened, setSideNavOpened] = useState(false);
+	const [sideNavOpened, setSideNavOpenedAction] = useState(false);
+
+	const sideNavCloseHandler = () =>{
+		if (sideNavOpened){
+			setSideNavOpenedAction(false)
+		}
+	}
+
+	const [accountModalOpened, setAccountModalOpenedAction] = useState(false)
+
+	const [searchOpened, setSearchOpenedAction] = useState(false)
+
 
 	return (
-		<StateContext.Provider value={{ user, createUserAction, defaultUserImg }}>
+		<StateContext.Provider
+			value={{
+				user,
+				createUserAction,
+				defaultUserImg,
+				sideNavOpened,
+				setSideNavOpenedAction,
+				sideNavCloseHandler,
+				accountModalOpened,
+				setAccountModalOpenedAction,
+				searchOpened,
+				setSearchOpenedAction
+			}}>
 			{children}
 		</StateContext.Provider>
 	);
