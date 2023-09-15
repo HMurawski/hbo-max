@@ -19,24 +19,24 @@ const SearchModal = () => {
 						className="search-modal-list__input"
 						type="text"
 						placeholder="search for a title"
-						value=""
+						
 					/>
-					<div className="search-modal-list__close-btn" onClick={()=>globalState.setSearchOpenedAction(false)}>
+					<div
+						className="search-modal-list__close-btn"
+						onClick={() => globalState.setSearchOpenedAction(false)}>
 						<i className="fas fa-times" />
 					</div>
 				</div>
 
 				<h3 className="search-modal-list__title">Most Popular Searches</h3>
 				<div className="search-modal-list__thumbnails">
-					{loopComp(
-						<div className="search-modal-list__thumbnail">
-							<img src="https://www.chinadaily.com.cn/culture/attachement/jpg/site1/20170326/f04da2db14841a419ea21f.jpg" />
-							<div className="search-modal-list__top-layer">
-								<i className="fas fa-play" />
-							</div>
-						</div>,
-						10
-					)}
+					<div className="search-modal-list__thumbnail">
+						<img src="https://www.chinadaily.com.cn/culture/attachement/jpg/site1/20170326/f04da2db14841a419ea21f.jpg" />
+						<div className="search-modal-list__top-layer">
+							<i className="fas fa-play" />
+						</div>
+					</div>
+				
 				</div>
 			</div>
 		</>

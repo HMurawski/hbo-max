@@ -11,21 +11,23 @@ const GenreNav = (props) => {
   return (
     <>
       <ul className={`genre-nav ${activeNav ? 'genre-nav--active' : ""} `} >
-        <li>
-          <Link href="/">Home</Link>
-        </li>
-        <li>
-          <Link href="/">Home</Link>
-        </li>
-        <li>
-          <Link href="/">Home</Link>
-        </li>
-        <li>
-          <Link href="/">Home</Link>
-        </li>
+
+		<GenreList genresData={props.genresData} mediaType={props.mediaType}  />
+      
+      
       </ul>
     </>
   );
 };
+
+const GenreList = (props) => {
+	return props.genresData.map((item)=> {
+		return (
+			<li  key={item.id}>
+			<Link href="/">{item.name}</Link>
+		  </li>
+		)
+	})
+}
 
 export default GenreNav;

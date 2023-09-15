@@ -9,8 +9,10 @@ import MediaRow from "@/components/UI/MediaRow/MediaRow";
 import LazyLoad from "react-lazy-load";
 import Placeholder from "@/components/UI/Placeholder/Placeholder";
 import GenreNav from "@/components/UI/GenreNav/GenreNav";
+import { shuffleArray } from "@/components/utilities";
+import axios from "axios";
 
-export default function Index() {
+export default function MediaTypePage(props) {
 	const globalState = useStateContext();
 	const router = useRouter();
 
@@ -24,7 +26,7 @@ export default function Index() {
 					linkUrl="/movie/2323"
 					type="front"
 				/> */}
-                <GenreNav />
+				<GenreNav mediaType={props.query.MediaType} genresData={props.genresData} />
 				<LazyLoad>
 					<MediaRow
 						title="Movies"
@@ -37,4 +39,32 @@ export default function Index() {
 			</MainLayout>
 		</>
 	);
+}
+
+export async function getServerSideProps(context) {
+	let genresData;
+	let featuredData;
+
+	try {
+		genresData = await axios.get(
+			`https://api.themoviedb.org/3/genre/${context.query.mediaType}/list?api_key=802554e9aa5883dcfd7530ef168e5072`
+		);
+		featuredData = await axios.get(
+			`https://api.themoviedb.org/3/discover/${context.query.mediaType}?primary_release_year=2023&api_key=802554e9aa5883dcfd7530ef168e5072`
+		);
+
+	
+	} catch (error) {
+		console.log("error");
+		console.log(error);
+	}
+
+
+	return {
+		props: {
+			genresData: genresData.data.genres,
+			featuredData: shuffleArray(featuredData.data.results)[0],
+			query: context.query,
+		},
+	};
 }

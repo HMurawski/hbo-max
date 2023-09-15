@@ -12,19 +12,7 @@ import LazyLoad from "react-lazy-load";
 export default function SingleMediaPage(props) {
 	const router = useRouter();
 	const [mediaData, setMediaData] = useState(false);
-	// const { id } = router.query
 
-	// useEffect(() => {
-	// 	axios
-	// 		.get(
-	// 			`https://api.themoviedb.org/3/movie/${props.query.id}?&api_key=802554e9aa5883dcfd7530ef168e5072`
-	// 		)
-	// 		.then(function (response) {
-	// 			setMediaData(response.data);
-	// 			console.log(mediaData);
-	// 		})
-	// 		.catch(function (error) {});
-	// }, [mediaData]);
 
 	return AuthCheck(
 		<>
