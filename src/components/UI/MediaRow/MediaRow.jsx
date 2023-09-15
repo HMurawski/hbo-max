@@ -73,4 +73,8 @@ const Skeleton = () => {
 		</div>
 	);
 };
+
+MediaRow.defaultProps = {
+	mediaType: 'movie'
+}
 export default MediaRow;

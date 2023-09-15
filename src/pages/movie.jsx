@@ -16,7 +16,7 @@ export default function Movie() {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 			</Head>
 			<MainLayout>
-				<FeaturedMedia videoUrl="https://www.youtube.com/embed/KPLWWIOCOOQ?autoplay=1&loop=1&start=2"  title="Game of Thrones" mediaUrl='/movies/id'  />
+				<FeaturedMedia mediaUrl="https://www.youtube.com/embed/KPLWWIOCOOQ?autoplay=1&loop=1&start=2"  title="Game of Thrones" linkUrl='/movie/2323'  type="front" />
 				<MediaRow
 						title="Movies"
 						type="small-v"

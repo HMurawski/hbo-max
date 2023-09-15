@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+
 const CastInfo = (props) => {
 	const [loadingData, setLoadingData] = useState(true);
 	const [credits, setCredits] = useState([]);
@@ -8,7 +9,7 @@ const CastInfo = (props) => {
 	useEffect(() => {
 		axios
 			.get(
-				`https://api.themoviedb.org/3/movie/${props.mediaId}/credits?api_key=802554e9aa5883dcfd7530ef168e5072`
+				`https://api.themoviedb.org/3/${props.mediaType === 'movie'? 'movie' : 'tv'}/${props.mediaId}/credits?api_key=802554e9aa5883dcfd7530ef168e5072`
 			)
 			.then(function (response) {
 				setCredits(response.data);
@@ -21,7 +22,8 @@ const CastInfo = (props) => {
 				// handle error
 				
 			});
-	}, [credits]);
+	}, [props.mediaId, props.mediaType]);
+	
    
 	const showCast = () => {
 		if (loadingData !== true) {
