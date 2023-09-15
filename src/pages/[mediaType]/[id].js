@@ -14,30 +14,26 @@ export default function SingleMediaPage(props) {
 	const [mediaData, setMediaData] = useState(false);
 	// const { id } = router.query
 
-	useEffect(() => {
-		axios
-			.get(
-				`https://api.themoviedb.org/3/movie/${props.query.id}?&api_key=802554e9aa5883dcfd7530ef168e5072`
-			)
-			.then(function (response) {
-				setMediaData(response.data);
-				console.log(mediaData);
-			})
-			.catch(function (error) {});
-	}, [mediaData]);
+	// useEffect(() => {
+	// 	axios
+	// 		.get(
+	// 			`https://api.themoviedb.org/3/movie/${props.query.id}?&api_key=802554e9aa5883dcfd7530ef168e5072`
+	// 		)
+	// 		.then(function (response) {
+	// 			setMediaData(response.data);
+	// 			console.log(mediaData);
+	// 		})
+	// 		.catch(function (error) {});
+	// }, [mediaData]);
 
 	return AuthCheck(
 		<>
-			<Head>
-				<title>HBO Max Clone</title>
-				<meta name="description" content="HBOMAX Clone created by HM9" />
-				<meta name="viewport" content="width=device-width, initial-scale=1" />
-			</Head>
+		
 			<MainLayout>
 				<FeaturedMedia
-					title={mediaData.title}
+					title={props.query.mediaType === 'movie' ? props.mediaData.title : props.mediaData.name}
 					linkUrl="/movie/id"
-					mediaUrl={`https://image.tmdb.org/t/p/w1280/${mediaData.backdrop_path}`}
+					mediaUrl={`https://image.tmdb.org/t/p/w1280/${props.mediaData.backdrop_path}`}
 					type="single"
 				/>
 
@@ -45,7 +41,8 @@ export default function SingleMediaPage(props) {
 				<MediaRow
 					title="More Like This"
 					type="small-v"
-					endpoint={`movie/${props.query.id}/similar?`}
+					mediaType={props.query.mediaType}
+					endpoint={`${props.query.mediaType === 'movie' ? 'movie' : 'tv' }/${props.query.id}/similar?`}
 				/>
 				</LazyLoad>
 
@@ -56,7 +53,17 @@ export default function SingleMediaPage(props) {
 }
 
 export async function getServerSideProps(context) {
+	let mediaData;
+
+	try {
+		mediaData = await axios.get(`https://api.themoviedb.org/3/${context.query.mediaType}/${context.query.id}?api_key=802554e9aa5883dcfd7530ef168e5072`) 
+	} catch (error){
+		console.log(error);
+	}
+
+
 	return {
-		props: { query: context.query },
+		props: { mediaData: mediaData.data, query: context.query },
 	};
 }
+// ${context.query.mediaType}

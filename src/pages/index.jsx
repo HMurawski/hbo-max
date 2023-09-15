@@ -30,6 +30,7 @@ export default function Index() {
 					<MediaRow
 						title="Movies"
 						type="large-v"
+						mediaType='movie'
 						genreID="28"
 						endpoint="discover/movie?with_genres=28&primary_release_year=2023"
 					/>
@@ -39,9 +40,10 @@ export default function Index() {
 					  >
 					<MediaRow
 						title="Series"
+						mediaType="tv"
 						type="small-h"
 						genreID="80"
-						endpoint="discover/movie?with_genres=80&primary_release_year=2023"
+						endpoint="/discover/tv?"
 					/>
 				</LazyLoad>
 
@@ -49,6 +51,7 @@ export default function Index() {
 					<MediaRow
 						title="Fantasy"
 						type="small-v"
+						mediaType='movie'
 						genreID="14"
 						endpoint="discover/movie?with_genres=14&primary_release_year=2023"
 					/>
@@ -58,6 +61,7 @@ export default function Index() {
 					<MediaRow
 						title="Drama"
 						type="small-v"
+						mediaType='movie'
 						genreID="18"
 						endpoint="discover/movie?with_genres=18&primary_release_year=2023"
 					/>
@@ -68,6 +72,7 @@ export default function Index() {
 						title="Sci-Fi"
 						type="small-v"
 						genreID="878"
+						mediaType='movie'
 						endpoint="discover/movie?with_genres=878&primary_release_year=2023"
 					/>
 				</LazyLoad>
@@ -77,6 +82,7 @@ export default function Index() {
 						title="Thriller"
 						type="small-v"
 						genreID="53"
+						mediaType='movie'
 						endpoint="discover/movie?with_genres=53&primary_release_year=2023"
 					/>
 				</LazyLoad>
@@ -85,6 +91,7 @@ export default function Index() {
 					<MediaRow
 						title="Documentary"
 						type="small-v"
+						mediaType='movie'
 						genreID="99"
 						endpoint="discover/movie?with_genres=99&primary_release_year=2023"
 					/>
@@ -93,3 +100,12 @@ export default function Index() {
 		</>
 	);
 }
+
+
+
+// const options = {method: 'GET', headers: {accept: 'application/json'}};
+
+// fetch('https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc', options)
+//   .then(response => response.json())
+//   .then(response => console.log(response))
+//   .catch(err => console.error(err));
