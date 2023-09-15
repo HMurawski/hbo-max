@@ -1,8 +1,14 @@
 import Account from "../Account/Account";
 import SearchModal from "../SearchModal/SearchModal";
 import { useStateContext } from "@/components/HBOProvider";
+import { useRouter } from "next/router";
 
 const Header = (props) => {
+	const router = useRouter()
+	const goHomeHandler = () =>{
+		router.push('/')
+	}
+
 	const globalState = useStateContext();
 	return (
 		<>
@@ -17,7 +23,7 @@ const Header = (props) => {
 						<i className="fas fa-search" />
 					</div>
 				</div>
-				<div className="top-header__logo" />
+				<div className="top-header__logo" onClick={goHomeHandler} />
 				<div className="top-header__account" onClick={()=>globalState.setAccountModalOpenedAction(globalState.accountModalOpened ? false : true)} >
 					<img
 						src="https://randomuser.me/api/portraits/men/81.jpg"

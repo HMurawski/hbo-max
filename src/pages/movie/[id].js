@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import CastInfo from "@/components/UI/CastInfo/CastInfo";
 import AuthCheck from "@/components/AuthCheck";
 import axios from "axios";
+import LazyLoad from "react-lazy-load";
 
 export default function SingleMediaPage(props) {
 	const router = useRouter();
@@ -20,10 +21,10 @@ export default function SingleMediaPage(props) {
 			)
 			.then(function (response) {
 				setMediaData(response.data);
-                console.log(mediaData);
+				console.log(mediaData);
 			})
 			.catch(function (error) {});
-	}, []);
+	}, [mediaData]);
 
 	return AuthCheck(
 		<>
@@ -33,21 +34,22 @@ export default function SingleMediaPage(props) {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 			</Head>
 			<MainLayout>
-				
 				<FeaturedMedia
 					title={mediaData.title}
-					linkUrl="/movies/id"
-					mediaUrl={`https://image.tmdb.org/t/p/original/${mediaData.backdrop_path}`}
+					linkUrl="/movie/id"
+					mediaUrl={`https://image.tmdb.org/t/p/w1280/${mediaData.backdrop_path}`}
 					type="single"
 				/>
-				<MediaRow
-					title="Movies"
-					type="small-v"
-					genreID="28"
-					endpoint="discover/movie?with_genres=28&primary_release_year=2023"
-				/>
 
-				<CastInfo />
+				<LazyLoad>
+				<MediaRow
+					title="More Like This"
+					type="small-v"
+					endpoint={`movie/${props.query.id}/similar?`}
+				/>
+				</LazyLoad>
+
+				<CastInfo  mediaId={props.query.id} />
 			</MainLayout>
 		</>
 	);
