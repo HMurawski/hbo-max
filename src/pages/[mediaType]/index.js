@@ -20,12 +20,12 @@ export default function MediaTypePage(props) {
 	return AuthCheck(
 		<>
 			<MainLayout>
-				{/* <FeaturedMedia
-					mediaUrl="https://www.youtube.com/embed/KPLWWIOCOOQ?autoplay=1&loop=1&start=2"
-					title="Game of Thrones"
-					linkUrl="/movie/2323"
-					type="front"
-				/> */}
+				<FeaturedMedia
+					mediaUrl={`https://image.tmdb.org/t/p/w1280/${props.featuredData.backdrop_path}`}
+					title={props.query.mediaType === 'movie' ? props.featuredData.title : props.featuredData.name}
+					linkUrl={`/${props.query.mediaType}/${props.featuredData.id}`}
+					type="single"
+				/>
 				<GenreNav mediaType={props.query.MediaType} genresData={props.genresData} />
 				<LazyLoad>
 					<MediaRow
@@ -38,7 +38,8 @@ export default function MediaTypePage(props) {
 				</LazyLoad>
 			</MainLayout>
 		</>
-	);
+	); 
+
 }
 
 export async function getServerSideProps(context) {
