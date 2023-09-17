@@ -16,17 +16,45 @@ export default function MediaTypePage(props) {
 	const globalState = useStateContext();
 	const router = useRouter();
 
-	useEffect(() => {}, []);
+	const showRandomMedia = () => {
+		let thumbType;
+		return props.genresData.map((item)=>{
+			thumbType = shuffleArray(globalState.thumbTypes)[0]
+			return (
+				<LazyLoad  >
+					<MediaRow
+						title={item.name}
+						type={thumbType}
+						// mediaType="movie"
+						genreID="28"
+						endpoint={`discover/${props.query.mediaType}?with_genres=${item.id}&sort_by=popularity.desc&primary_release_year=2022`}
+						key={item.id}
+						
+					/>
+				</LazyLoad>
+			)
+		})
+	}
+
+
 	return AuthCheck(
 		<>
 			<MainLayout>
 				<FeaturedMedia
 					mediaUrl={`https://image.tmdb.org/t/p/w1280/${props.featuredData.backdrop_path}`}
-					title={props.query.mediaType === 'movie' ? props.featuredData.title : props.featuredData.name}
+					title={
+						props.query.mediaType === "movie"
+							? props.featuredData.title
+							: props.featuredData.name
+					}
 					linkUrl={`/${props.query.mediaType}/${props.featuredData.id}`}
 					type="single"
 				/>
-				<GenreNav mediaType={props.query.MediaType} genresData={props.genresData} />
+				<GenreNav
+					mediaType={props.query.MediaType}
+					genresData={props.genresData}
+				/>
+				{showRandomMedia()}
 				<LazyLoad>
 					<MediaRow
 						title="Movies"
@@ -38,8 +66,7 @@ export default function MediaTypePage(props) {
 				</LazyLoad>
 			</MainLayout>
 		</>
-	); 
-
+	);
 }
 
 export async function getServerSideProps(context) {
@@ -53,13 +80,10 @@ export async function getServerSideProps(context) {
 		featuredData = await axios.get(
 			`https://api.themoviedb.org/3/discover/${context.query.mediaType}?primary_release_year=2023&api_key=802554e9aa5883dcfd7530ef168e5072`
 		);
-
-	
 	} catch (error) {
 		console.log("error");
 		console.log(error);
 	}
-
 
 	return {
 		props: {

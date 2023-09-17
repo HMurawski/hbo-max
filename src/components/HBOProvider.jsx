@@ -15,16 +15,17 @@ export function HBOProvider({ children }) {
 	};
 	const [sideNavOpened, setSideNavOpenedAction] = useState(false);
 
-	const sideNavCloseHandler = () =>{
-		if (sideNavOpened){
-			setSideNavOpenedAction(false)
+	const sideNavCloseHandler = () => {
+		if (sideNavOpened) {
+			setSideNavOpenedAction(false);
 		}
-	}
+	};
 
-	const [accountModalOpened, setAccountModalOpenedAction] = useState(false)
+	const [accountModalOpened, setAccountModalOpenedAction] = useState(false);
 
-	const [searchOpened, setSearchOpenedAction] = useState(false)
+	const [searchOpened, setSearchOpenedAction] = useState(false);
 
+	const thumbTypes = ['large-v', 'small-v', ]
 
 	return (
 		<StateContext.Provider
@@ -38,7 +39,8 @@ export function HBOProvider({ children }) {
 				accountModalOpened,
 				setAccountModalOpenedAction,
 				searchOpened,
-				setSearchOpenedAction
+				setSearchOpenedAction,
+				thumbTypes
 			}}>
 			{children}
 		</StateContext.Provider>
