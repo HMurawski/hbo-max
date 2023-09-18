@@ -18,7 +18,7 @@ export default function MediaTypePage(props) {
 
 	const showRandomMedia = () => {
 		let thumbType;
-		return props.genresData.map((item)=>{
+		return props.genresData.map((item, index)=>{
 			thumbType = shuffleArray(globalState.thumbTypes)[0]
 			return (
 				<LazyLoad  >
@@ -27,7 +27,7 @@ export default function MediaTypePage(props) {
 						type={thumbType}
 						// mediaType="movie"
 						genreID="28"
-						endpoint={`discover/${props.query.mediaType}?with_genres=${item.id}&sort_by=popularity.desc&primary_release_year=2022`}
+						endpoint={`discover/${props.query.mediaType}?with_genres=${item.id}&sort_by=popularity.desc&primary_release_year=2022&page=${index + 1}`}
 						key={item.id}
 						
 					/>
@@ -89,6 +89,7 @@ export async function getServerSideProps(context) {
 		props: {
 			genresData: genresData.data.genres,
 			featuredData: shuffleArray(featuredData.data.results)[0],
+            genre_id: context.query,
 			query: context.query,
 		},
 	};
