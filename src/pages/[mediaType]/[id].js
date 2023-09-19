@@ -27,6 +27,7 @@ export default function SingleMediaPage(props) {
 
 				<LazyLoad>
 				<MediaRow
+				updateData={props.query.id}
 					title="More Like This"
 					type="small-v"
 					mediaType={props.query.mediaType}
@@ -34,7 +35,7 @@ export default function SingleMediaPage(props) {
 				/>
 				</LazyLoad>
 
-				<CastInfo  mediaId={props.query.id} mediaType={props.query.mediaType} />
+				<CastInfo  mediaId={props.query.id} mediaType={props.query.mediaType}  updateData={props.query.id} />
 			</MainLayout>
 		</>
 	);

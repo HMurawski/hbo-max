@@ -23,6 +23,7 @@ export default function MediaTypePage(props) {
 			return (
 				<LazyLoad  >
 					<MediaRow
+						updateData={props.query.genre_id}
 						title={item.name}
 						type={thumbType}
 						// mediaType="movie"

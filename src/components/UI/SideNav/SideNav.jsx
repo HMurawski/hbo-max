@@ -1,8 +1,18 @@
 import Link from "next/link";
+import { useEffect } from "react";
 import { useStateContext } from "@/components/HBOProvider";
 
 const SideNav = (props) => {
 	const globalState = useStateContext();
+
+	 useEffect(()=>{
+		if(globalState.sideNavOpened){
+			document.body.style.overflowY = 'hidden'
+		}else {
+			document.body.style.overflowY = 'auto'
+		}
+	 }, [globalState.sideNavOpened])
+
 
 	return (
 		<>

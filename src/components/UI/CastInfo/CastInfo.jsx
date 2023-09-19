@@ -22,7 +22,7 @@ const CastInfo = (props) => {
 				// handle error
 				
 			});
-	}, [props.mediaId, props.mediaType]);
+	}, [props.mediaId, props.mediaType, props.updateData]);
 	
    
 	const showCast = () => {

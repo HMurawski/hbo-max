@@ -1,8 +1,19 @@
 import Link from "next/link";
 import { useStateContext } from "@/components/HBOProvider";
+import { useEffect } from "react";
 
 const Account = (props) => {
 	const globalState = useStateContext();
+
+
+	useEffect(()=>{
+		if(globalState.accountModalOpened){
+			document.body.style.overflowY = 'hidden'
+		}else {
+			document.body.style.overflowY = 'auto'
+		}
+	 }, [globalState.accountModalOpened])
+
 	return (
 		<div
 			className={`account ${
