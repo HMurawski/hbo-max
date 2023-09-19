@@ -23,6 +23,8 @@ export default function SingleMediaPage(props) {
 					linkUrl="/movie/id"
 					mediaUrl={`https://image.tmdb.org/t/p/w1280/${props.mediaData.backdrop_path}`}
 					type="single"
+					// mediaType={props.query.mediaType}
+					// mediaId={props.query.id}
 				/>
 
 				<LazyLoad>

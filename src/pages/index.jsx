@@ -28,6 +28,8 @@ export default function Index() {
 					title="Game of Thrones"
 					linkUrl="/movie/2323"
 					type="front"
+					mediaType={'movie'}
+					mediaId = {460465}
 				/>
 				<LazyLoad>
 					<MediaRow

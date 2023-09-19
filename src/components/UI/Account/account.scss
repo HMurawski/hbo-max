@@ -14,7 +14,7 @@
     }
     &__details {
         padding: 20px;
-        max-width: 600px;
+        max-width: 700px;
 
     }
     &__title {
@@ -24,17 +24,17 @@
     }
     &__watch-list {
         display: grid;
-        grid-template-columns: 240px 240px 240px;
+        grid-template-columns: 200px 200px 200px;
         gap: 20px;
     }
     &__watch-video {
         position: relative;
-        width: 220px;
+        width: 200px;
         height: 220px;
         
        
         img{
-            width: 220px;
+            width: 200px;
             height: 220px;
             object-fit: cover;
             object-position: center;
@@ -85,7 +85,7 @@
     li{
         opacity: 0;
         transition: opacity .4s ease-in-out;
-        a{
+        a, .link{
             color: rgb(80,80,80);
             font-size: 1.5rem;
             text-decoration: none;
