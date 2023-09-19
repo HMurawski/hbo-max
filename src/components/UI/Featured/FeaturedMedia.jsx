@@ -3,7 +3,7 @@ const FeaturedMedia = (props) => {
 	const router = useRouter()
 
 	const clickedPlay = () =>{
-		router.push(props.linkUrl)
+		router.push(`${props.linkUrl}`)
 		console.log(`page of the media` + props.mediaUrl);
 	}
 
